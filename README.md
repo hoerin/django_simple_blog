@@ -1,6 +1,6 @@
 # Djangoで作るシンプルなブログ
 
-##はじめに
+## はじめに
 [ヨコハマDjango勉強会](https://connpass.com/event/73811/)のためのサンプルです。  
 月1回くらいのペースで開催しようと思っています。  
 ヨコハマにPython&Djangoコミュニティができればいいな。
@@ -8,24 +8,24 @@
 このサンプルではDjango2.0を使っています。  
 [Django 2.0 release notes](https://docs.djangoproject.com/en/2.0/releases/2.0/)
 
-##動かし方
+## 動かし方
 
-###まずはDjangoをインストール
+### まずはDjangoをインストール
 virtualenvなどで仮想環境つくっておくとよいかも。
 
 `pip install django`
 
-###データベースの初期化
+### データベースの初期化
 SQLiteで自動的にDBが作成されます。
 
 `python manage.py migrate`
 
-###スーパーユーザーの作成
+### スーパーユーザーの作成
 Django管理画面にログインするためのスーパーユーザーを登録します。
 
 `python manage.py createsuperuser`
 
-###サーバーを起動
+### サーバーを起動
 Djangoの簡易サーバーを起動します。
 `python manage.py runserver`
 
