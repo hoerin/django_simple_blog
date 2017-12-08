@@ -1,0 +1,49 @@
+{% load staticfiles i18n %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}ページのタイトル{% endblock title %}</title>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    <meta name="author" content="{% block author %}おーさー{% endblock author %}">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    {% block css %}
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Tether JS -->
+    <link href="{% static 'css/tether/tether.min.css' %}" rel="stylesheet">
+
+    <!-- My CSS -->
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endblock %}
+  </head>
+  
+  <body>
+    <div class="container">
+      {% block breadcrumb %}{% endblock breadcrumb %}
+      {% block content %}
+      ページのコンテンツを表示するエリア
+      {% endblock content %}
+    </div><!-- /.container -->
+    
+    {% block javascript %}
+    <!-- jQuery JS -->
+    <script src="{% static 'js/jquery/jquery-3.2.1.min.js' %}"></script>
+
+    <!-- Tether JS -->
+    <script src="{% static 'js/tether/tether.min.js' %}"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    {% endblock javascript %}
+  </body>
+</html>
+

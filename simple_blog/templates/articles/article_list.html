@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}記事一覧{% endblock title %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item active">記事一覧</li>
+</ol>
+{% endblock breadcrumb %}
+
+{% block content %}
+<h1>記事一覧</h1>
+<div class="row">
+  <div class="col-12">
+    <ul>
+      {% for object in object_list %}
+      <li><a href="{{ object.get_absolute_url }}">{{ object.created_at|date:'Y/n/j H:i' }} - {{ object.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="col-12">
+    <a class="btn btn-primary" href="{% url 'articles:create' %}" role="button">新規投稿</a>
+  </div>
+</div>
+
+{% endblock content %}

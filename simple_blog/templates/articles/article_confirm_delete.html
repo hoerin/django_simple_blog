@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}記事削除{% endblock title %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'articles:list' %}">記事一覧</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'articles:detail' object.id %}">{{ object.title }}</a></li>
+  <li class="breadcrumb-item active">記事削除</li>
+</ol>
+{% endblock breadcrumb %}
+
+
+{% block content %}
+<h1>記事表示</h1>
+<div class="row">
+  <div class="article col-12">
+    <h2>本当に削除しますか？</h2>
+    
+    <form action="" method="post">{% csrf_token %}
+      <p>"{{ object }}"を本当に削除しますか？?</p>
+      <a class="btn btn-primary" href="{% url 'articles:detail' object.id %}" role="button">やっぱり削除しない</a>
+      <input class="btn btn-danger" type="submit" value="本当に削除する" />
+    </form>
+  </div>
+</div>
+{% endblock content %}

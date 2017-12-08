@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}記事更新{% endblock title %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'articles:list' %}">記事一覧</a></li>
+  {% if object %}
+  <li class="breadcrumb-item"><a href="{% url 'articles:detail' object.id %}">{{ object.title }}</a></li>
+  <li class="breadcrumb-item active">記事更新</li>
+  {% else %}
+  <li class="breadcrumb-item active">新規投稿</li>
+  {% endif %}
+</ol>
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+{% if object %}
+<h1>記事更新</h1>
+{% else %}
+<h1>新規投稿</h1>
+{% endif %}
+
+<div class="row">
+  <div class="col-12">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-primary" type="submit">保存</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}
