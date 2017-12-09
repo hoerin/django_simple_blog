@@ -37,6 +37,12 @@ Djangoの簡易サーバーを起動します。
 
 とかやればOK。
 
+ブラウザで下記URLを入力するとページが表示されるはず。
+`http://localhost:8000`
+
+下記URLで管理画面にアクセスできます。
+`http://localhost:8000/admin/`
+
 ## ゼロから作りたい人向けのメモ
 ### プロジェクトを作成
 `django-admin startproject [projectname]`
